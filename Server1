@@ -1,0 +1,105 @@
+set es_enableCustomData 1 
+set mysql_connection_string "server=mysql-mariadb-dal01-9-101.zap-hosting.com;database=xxxxxxxx;userid=xxxxxxxx-x;password=xxxxxxx
+endpoint_add_tcp "xxx.xxx.xxx.xxx:xxxxx" 
+endpoint_add_udp "xxx.xxx.xxx.xxx:xxxxx" 
+exec resources/vMenu/config/permissions.cfg
+# you probably don't want to change these!
+# only change them if you're using a server with multiple network interfaces
+
+start mapmanager
+start chat
+start spawnmanager
+start sessionmanager
+start fivem
+start hardcap
+start rconlog
+start scoreboard
+start playernames
+#inserted trough ZAP ressourcesystem
+
+### put your custom ressources below this line! ###
+Start areaofplay
+Start deleteveh
+Start disclaimer
+Start EveryoneIgnore
+Start modelblacklist
+Start onduty
+Start roleplay-commands
+Start roleplay-toolbox
+Start SexySpeedometer-FiveM-master
+Start streetLabel
+Start synn-loadscreen-master
+Start frfuel_v1.3.0
+Start cooldown
+Start vMenu
+Start emotes
+Start crouch
+Start CustomScripts
+Start chat
+Start carhud1.5
+Start esx_policejob
+Start noplayerblips
+Start Redwood
+Start RPDeath
+Start servercommands
+Start Wheel-saving-master
+Start easyadmin
+Start server-meeting
+
+sv_scriptHookAllowed 0
+
+# change this
+rcon_password xxxxxxxx
+
+sv_hostname "Thanks For Visiting!!!"
+
+# nested configs!
+#exec server_internal.cfg
+
+# a comma-separated list of tags for your server
+# for example: sets tags "drifting, cars, racing" or sets tags "roleplay, military, tanks"
+sets tags "default"
+
+# set an optional server info and connecting banner image url.
+# size doesn't matter, any banner sized image will be fine.
+#sets banner_detail "http://url.to/image.png"
+#sets banner_connecting "http://url.to/image.png"
+
+# loading a server icon (96x96 PNG file)
+load_server_icon zap96x96.png
+
+# convars for use from script
+set temp_convar "hey world!"
+
+# disable announcing? clear out the master by uncommenting this (your server will not be listed in the serverlist if you uncomment this!)
+#sv_master1 ""
+
+# want to only allow players authenticated with a third-party provider like Steam (don't forget, Social Club is a third party probvider too!)?
+#sv_authMaxVariance 1
+#sv_authMinTrust 5
+
+# add system admins
+add_ace group.admin command allow # allow all commands
+add_ace group.admin command.quit deny # but don't allow quit
+add_principal identifier.steam:110000101010110 group.admin # add the admin to the group
+add_principal identifier.STEAM_0:1:110010101
+
+add_ace group.god easyadmin allow	                 # allow all commands for admins
+
+add_ace group.god easyadmin.ban
+add_ace group.god easyadmin.kick
+add_ace group.god easyadmin.spectate
+add_ace group.god easyadmin.unban 
+add_ace group.god easyadmin.teleport
+add_ace group.god easyadmin.manageserver
+add_ace group.god easyadmin.slap
+add_ace group.god easyadmin.freeze
+
+
+# remove the # to hide player endpoints in external log output
+sv_endpointprivacy true
+
+# server slots limit (must be between 1 and 31)
+sv_maxclients 10
+#This is an official FiveM server hosted by ZAP-Hosting.com. You do not need to put a license key here.
+restart sessionmanager
